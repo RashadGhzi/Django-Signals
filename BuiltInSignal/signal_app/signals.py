@@ -17,7 +17,7 @@ def login(sender, request, user, **kwargs):
 
 
 @receiver(user_logged_out, sender=User)
-def login(sender, request, user, **kwargs):
+def login_out(sender, request, user, **kwargs):
     print("-------- This is user_logged_out Signal ---------")
     print('sender : ', sender)
     print('request : ', request)
@@ -27,7 +27,7 @@ def login(sender, request, user, **kwargs):
 
 # django built_in log in failed signal
 @receiver(user_login_failed)
-def login(sender, credentials, request, **kwargs):
+def login_failed(sender, credentials, request, **kwargs):
     print("-------- This is user_login_failed Signal ---------")
     print('sender : ', sender)
     print('request : ', request)
